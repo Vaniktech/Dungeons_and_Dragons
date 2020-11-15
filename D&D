@@ -1,0 +1,50 @@
+CREATE TABLE trinkets (
+	id int NOT NULL PRIMARY KEY,
+	description varchar(60) NOT NULL
+)
+CREATE TABLE armor_and_shields (
+	id int NOT NULL PRIMARY KEY,
+	type varchar(20) NOT NULL,
+	name varchar(20) NOT NULL,
+	price int NOT NULL,
+	armor_class varchar(20),
+	power int,
+	secrecy varchar(10),
+	weight int
+)
+CREATE TABLE gems(
+	id int NOT NULL PRIMARY KEY,
+	price int NOT NULL,
+	description varchar(60)
+)
+CREATE TABLE tools (
+	id int NOT NULL PRIMARY KEY,
+	type varchar(30),
+	name varchar(30) NOT NULL,
+	price int NOT NULL,
+	weight float4
+)
+CREATE TABLE arms (
+	id int NOT NULL PRIMARY KEY,
+	type varchar(30) NOT NULL,
+	name varchar(20) NOT NULL,
+	price int NOT NULL,
+	hands_per_weapon int,
+	damage int,
+	damage_type varchar(10),
+	weight float4,
+	properties varchar(40)
+)
+CREATE TABLE art (
+	id int NOT NULL PRIMARY KEY,
+	price int NOT NULL,
+	description varchar(60)
+)
+CREATE TABLE equipment (
+	id int NOT NULL PRIMARY KEY,
+	type varchar(20),
+	name varchar(40),
+	price int NOT NULL,
+	weight float4
+)
+
