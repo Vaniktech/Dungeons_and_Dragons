@@ -3,7 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
 from time import sleep
 from csv import writer
-from os import path, remove, mkdir
+from os import path, rmdir, mkdir
+import shutil
 
 driver = webdriver.Chrome(executable_path="C:/chromedriver.exe")
 
@@ -76,13 +77,12 @@ def get_info():
         web = get_cards()
         count_web = len(web)
         for j in range(0, count_web):
-            # TRY
             equality = j == count_web - 1
             s = str(web[j].find_element(By.CLASS_NAME, "header_info").text)
-            l = s.find("\n")
+            slice = s.find("\n")
             if i == 0:  # armor
-                armor_name = s[:l]
-                armor_type = s[l + 1:-1]
+                armor_name = s[:slice]
+                armor_type = s[slice + 1:-1]
                 armor_type = armor_type[armor_type.find("(") + 1:]
                 armor_price = web[j].find_element(By.CLASS_NAME, "coast").text
                 armor_price = currency_convert(armor_price)
@@ -102,9 +102,9 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 1:  # weapon
-                weapon_name = s[:l]
+                weapon_name = s[:slice]
                 weapon_name = weapon_name.replace(", ", " ")
-                weapon_type = s[l + 1:-1]
+                weapon_type = s[slice + 1:-1]
                 weapon_type = weapon_type[weapon_type.find("(") + 1:]
                 weapon_price = web[j].find_element(By.CLASS_NAME, "coast").text
                 weapon_price = currency_convert(weapon_price)
@@ -141,8 +141,8 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 2:  # ammunition
-                ammunition_name = s[:l]
-                ammunition_type = s[l + 1:]
+                ammunition_name = s[:slice]
+                ammunition_type = s[slice + 1:]
                 ammunition_price = str(web[j].find_element(By.CLASS_NAME, "coast").text)
                 ammunition_price = currency_convert(ammunition_price)
                 ammunition_weight = str(web[j].find_element(By.CLASS_NAME, "weight").text)
@@ -160,9 +160,9 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 3:  # consumables
-                consumables_name = s[:l]
+                consumables_name = s[:slice]
                 consumables_name = consumables_name.replace(", ", " ")
-                consumables_type = s[l + 1:]
+                consumables_type = s[slice + 1:]
                 consumables_price = web[j].find_element(By.CLASS_NAME, "coast").text
                 consumables_price = currency_convert(consumables_price)
                 try:
@@ -185,8 +185,8 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 4:  # kit
-                kit_name = s[:l]
-                kit_type = s[l + 1:]
+                kit_name = s[:slice]
+                kit_type = s[slice + 1:]
                 kit_price = str(web[j].find_element(By.CLASS_NAME, "coast").text)
                 kit_price = currency_convert(kit_price)
                 kit_weight = str(web[j].find_element(By.CLASS_NAME, "weight").text)
@@ -203,9 +203,9 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 5:  # tool
-                tool_name = s[:l]
+                tool_name = s[:slice]
                 tool_name = tool_name.replace(", ", " ")
-                tool_type = s[l + 1:]
+                tool_type = s[slice + 1:]
                 tool_price = str(web[j].find_element(By.CLASS_NAME, "coast").text)
                 tool_price = currency_convert(tool_price)
                 tool_weight = str(web[j].find_element(By.CLASS_NAME, "weight").text)
@@ -222,9 +222,9 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 6:  # gear
-                gear_name = s[:l]
+                gear_name = s[:slice]
                 gear_name = gear_name.replace(", ", " ")
-                gear_type = s[l + 1:]
+                gear_type = s[slice + 1:]
                 gear_price = str(web[j].find_element(By.CLASS_NAME, "coast").text)
                 gear_price = currency_convert(gear_price)
                 gear_weight = str(web[j].find_element(By.CLASS_NAME, "weight").text)
@@ -244,9 +244,9 @@ def get_info():
                 csv_writer(items, i, equality)
 
             elif i == 7:  # container
-                container_name = s[:l]
+                container_name = s[:slice]
                 container_name = container_name.replace(", ", " ")
-                container_type = s[l + 1:]
+                container_type = s[slice + 1:]
                 container_price = str(web[j].find_element(By.CLASS_NAME, "coast").text)
                 container_price = currency_convert(container_price)
                 container_weight = str(web[j].find_element(By.CLASS_NAME, "weight").text)
@@ -284,7 +284,7 @@ def get_info():
 
         labels[i].click()
     driver.close()
-
+shutil.rmtree("parsed_data")
 if not path.exists("parsed_data"):
     mkdir("parsed_data")
 
