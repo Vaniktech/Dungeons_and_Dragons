@@ -11,8 +11,8 @@
 Например, для браузера chrome версии 87.0.4280.66 скачать драйвер ChromeDriver 87.0.4280.20.\
 Для firefox любой версии geckodriver последней версии(0.28 на данный момент).\
 Ссылки на драйверы:\
-ChromeDriver - https://chromedriver.chromium.org/downloads\
-Geckodriver - https://github.com/mozilla/geckodriver/releases\
+ChromeDriver - https://chromedriver.chromium.org/downloads \n
+Geckodriver - https://github.com/mozilla/geckodriver/releases \n
 Выгрузить драйвер в любое удобное место(можно в сам проект).\
 В 8-ой строчке выбрать браузер(firefox или chrome), в поле "executable_path=" указать полный путь до драйвера, который скачали ранее.\
 Импортировать файл DnD_equipment.pgsql в СУБД PostgreSQL.
