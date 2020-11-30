@@ -14,7 +14,7 @@
 ChromeDriver - https://chromedriver.chromium.org/downloads \
 Geckodriver - https://github.com/mozilla/geckodriver/releases \
 Выгрузить драйвер в любое удобное место(можно в сам проект).\
-В 8-ой строчке выбрать браузер(firefox или chrome), в поле "executable_path=" указать полный путь до драйвера, который скачали ранее.\
+В 8-ой строчке файла tentaculus.py выбрать браузер(firefox или chrome), в поле "executable_path=" указать полный путь до драйвера, который скачали ранее.\
 Импортировать файл DnD_equipment.pgsql в СУБД PostgreSQL.
 
 ### Запуск
