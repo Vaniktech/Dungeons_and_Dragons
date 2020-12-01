@@ -9,7 +9,7 @@
 ### Предварительная настройка
 Скачать программный компонент для связки программы с вашим браузером, в соответствии с его версией.\
 Например, для браузера chrome версии 87.0.4280.66 скачать драйвер ChromeDriver 87.0.4280.20.\
-Для firefox любой версии geckodriver последней версии (0.28 на данный момент).\
+Для firefox любой версии, geckodriver последней версии (0.28 на данный момент).\
 Ссылки на драйверы:\
 ChromeDriver - https://chromedriver.chromium.org/downloads \
 Geckodriver - https://github.com/mozilla/geckodriver/releases \
