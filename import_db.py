@@ -15,7 +15,7 @@ def import_db():
     table_name = ["armor.csv", "weapon.csv", "ammunition.csv", "consumables.csv", "kit.csv", "tool.csv", "gear.csv",
                   "container.csv", "arcane_focus.csv", "druidic_focus.csv", "holly_simbol.csv", "clothes.csv",
                   "camp.csv", "explosives.csv", "firearm.csv", "poison.csv", "horse.csv", "for_horse.csv",
-                  "water_transport.csv"]
+                  "water_transport.csv", "food.csv"]
 
     for name in table_name:
         try:
