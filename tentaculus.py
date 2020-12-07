@@ -9,7 +9,7 @@ option = Options()
 option.headless = True
 
 # Firefox
-driver = webdriver.Firefox(executable_path="/home/climz/PycharmProjects/D&D_parser/geckodriver", options=option)
+# driver = webdriver.Firefox(executable_path="/home/climz/PycharmProjects/D&D_parser/geckodriver", options=option)
 # Chrome
 # driver = webdriver.Chrome(executable_path="/home/climz/PycharmProjects/D&D_parser/chromedriver", options=option)
 
